@@ -2,63 +2,66 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Zalo + Gọi</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nút Zalo & Gọi điện</title>
   <style>
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-    .widget-button {
+    .floating-container {
       position: fixed;
       bottom: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
       z-index: 9999;
-      display: flex;
-      align-items: center;
-      gap: 12px;
     }
-    .zalo-btn, .call-btn {
+
+    .floating-button {
+      width: 60px;
+      height: 60px;
+      background-color: white;
+      border-radius: 50%;
       display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 8px;
-      padding: 12px 16px;
-      border-radius: 30px;
-      color: #fff;
-      font-weight: bold;
-      font-size: 16px;
       text-decoration: none;
-      animation: pulse 2s infinite;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      color: black;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      animation: pulse 1.5s infinite;
+      font-size: 10px;
     }
-    .zalo-btn {
-      background-color: #0084ff;
-      left: 20px;
-    }
-    .call-btn {
-      background-color: #e53935;
-      right: 20px;
-      flex-direction: row-reverse;
-    }
-    .zalo-btn img, .call-btn img {
+
+    .floating-button img {
       width: 24px;
       height: 24px;
+      margin-bottom: 4px;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Zalo -->
-  <a href="https://zalo.me/0947065722" class="widget-button zalo-btn" style="left: 20px;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo">
-    Chat với tôi
-  </a>
+  <div class="floating-container">
+    <!-- Nút Zalo -->
+    <a href="https://zalo.me/0947065722" class="floating-button" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo">
+      Chat Zalo
+    </a>
 
-  <!-- Gọi -->
-  <a href="tel:0947065722" class="widget-button call-btn" style="right: 20px;">
-    Gọi ngay
-    <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Gọi">
-  </a>
+    <!-- Nút Gọi -->
+    <a href="tel:0947065722" class="floating-button">
+      <img src="https://cdn-icons-png.flaticon.com/512/15/15874.png" alt="Gọi">
+      Gọi ngay
+    </a>
+  </div>
 
 </body>
 </html>
